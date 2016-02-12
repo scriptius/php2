@@ -26,7 +26,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <?php if (!empty($article)) : ?>
-                <?php echo $article->authors->author; ?>
+                <?php echo $article->author->name; ?>
             <?php else : ?>
                 -= Без имени =-
             <?php endif; ?>

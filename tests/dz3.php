@@ -23,3 +23,19 @@ require __DIR__ . '\..\autoload.php';
 //$view = new \App\View();
 //$view['news']= App\Models\News::findAll();
 //$view['title'] = 'Список новостей';
+
+$news = App\Models\News::findById(3);
+
+$news->test= ' test message ';
+var_dump($news);
+//var_dump($news->test);
+//var_dump($news->authors);
+
+
+if (isset($news->author)) {
+var_dump($news->author);
+//    echo ' da';
+}else{
+//    echo ' net';
+}
+//var_dump($news->authors);

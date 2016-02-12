@@ -1,20 +1,20 @@
 <?php
 
 namespace App;
-
+use App\Db;
 abstract class Model {
 
     const TABLE = '';
 
     public static function findAll() {
-        $db = new Db();
+        $db = Db::instance();
         return $db->query(
             'SELECT * FROM ' . static::TABLE, static::class
         );
     }
 
     public static function findById($id) {
-        $db = new Db();
+        $db = Db::instance();
         $res = $db->query(
             'SELECT * FROM ' . static::TABLE . ' WHERE id = :param', static::class, [':param' => $id]
         );
@@ -33,7 +33,7 @@ abstract class Model {
         $columns = [];
         $values = [];
         foreach ($this as $k => $v) {
-            if ('id' == $k) {
+            if ('id' == $k || 'author_id' == $k || 'data' == $k) {
                 continue;
             }
             $columns[] = $k;
@@ -45,8 +45,8 @@ abstract class Model {
 VALUES
 (' . implode(',', array_keys($values)) . ')
         ';
-//        echo $sql;
-
+        echo $sql;
+var_dump($values);
         $db = Db::instance();
         $res=$db->execute($sql, $values);
         var_dump($res);
@@ -61,17 +61,21 @@ VALUES
     }
 
     public function update() {
+        
         if ($this->isNew()) {
             return;
-        }
+        }echo 'fvdf';
         foreach ($this as $k => $v) {
-
+if ('id' == $k || 'author_id' == $k || 'data' == $k) {
+                continue;
+            }
             $colums[] = $k . ' = :' . $k;
             $values[':' . $k] = $v;
         }
 
         $sql = sprintf('UPDATE ' . static::TABLE . ' SET ' . implode(',', $colums) . ' WHERE id = %d', $this->id);
-
+        var_dump($sql);
+        var_dump( $values);
         $db = Db::instance();
         if ($db->execute($sql, $values)) {
             return true;

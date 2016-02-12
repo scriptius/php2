@@ -5,13 +5,18 @@ namespace App\Models;
 use App\Model;
 use App\DB;
 use App\magicMethods;
+
 /**
  * Class news
- * @package App\Models
+ *
  */
-class News extends Model  {
-use magicMethods;
+class News extends Model {
+
+    use magicMethods;
+
     const TABLE = 'news';
+
+    public $id;
     public $title;
     public $text;
     public $date;
@@ -33,28 +38,35 @@ use magicMethods;
      * (в случае запроса свойста "authors" ) или FALSE - если свойство отсутствует
      */
     public function __get($k) {
-        if ('authors' == $k and !empty($this->author_id)) {
-            $authors = Author::findById((int)$this->author_id);
-            return $authors;
+
+        if ('author' == $k and ! empty($this->author_id)) {
+            $author = Author::findById((int) $this->author_id);
+            return $author;
         } else {
-            if(array_key_exists($k, $this->data)){
+            if (array_key_exists($k, $this->data)) {
                 return $this->data[$k];
-            }else{
+            } else {
                 return false;
             }
         }
     }
 
-    public function __isset($k)
-    {
-
-        if(array_key_exists($k, $this->data)){
-            return $this->data[$k] ;
-        }else{
+    /**
+     * @param $k имя свойства
+     * @return mixed возвращает или объект или false
+     */
+    public function __isset($k) {
+        switch ($k) {
+            case 'author':
+                return !empty($this->author_id);
+                break;
+        }
+        if (array_key_exists($k, $this->data)) {
+            return $this->data[$k];
+            var_dump($this->data[$k]);
+        } else {
             return false;
         }
-
     }
-
 
 }

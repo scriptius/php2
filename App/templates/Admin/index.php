@@ -1,0 +1,61 @@
+<?php
+session_start();
+
+if ($_SESSION['redirectMessage']) {           //Здесь в случае перенаправления будет указан статус предыдущей операции
+    echo $_SESSION['redirectMessage'];
+    unset($_SESSION['redirectMessage']);
+}
+?>
+<br><br><a href="http://scriptius/index.php?ctrl=Admin&act=edit"><b>Добавить новость</b></a><br><br>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title><?php echo $title; ?></title>
+
+        <!-- Bootstrap -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <h1>Админ-панель новостей</h1>
+
+        <?php foreach ($news as $article): ?>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    <a href="http://scriptius/index.php?ctrl=Admin&act=edit&id=<?= $article->id ?>">Редактировать</a>
+                    <a href="http://scriptius/index.php?ctrl=Admin&act=Del&id=<?= $article->id ?>">Удалить</a>
+                    <?php endfoeach;
+                    if (!empty($article)) :
+                        ?>
+                        <?php echo '<br> Автор: ' . $article->author->name; ?>
+                    <?php else : ?>
+                        -= Без имени =-
+    <?php endif; ?>
+                </div>
+                <div class="panel-body"><b><?php echo $article->title;
+    ; ?></b></div>
+                <div class="panel-body"><?php echo $article->text;
+    ; ?></div>
+            </div>
+
+<?php endforeach; ?>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
