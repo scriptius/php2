@@ -18,10 +18,12 @@
     <![endif]-->
 </head>
 <body>
-
+    <p align="right"><a href="http://scriptius/App/Controllers/Admin/Index">Вход в админ-панель</a></p>
 <h1>Список новостей</h1>
 
-<?php foreach ($news as $article) : ?>
+<?php
+
+foreach ($news as $article) : ?>
 
     <div class="panel panel-default">
         <div class="panel-heading">

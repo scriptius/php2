@@ -6,7 +6,11 @@ if ($_SESSION['redirectMessage']) {           //Здесь в случае пе�
     unset($_SESSION['redirectMessage']);
 }
 ?>
-<br><br><a href="http://scriptius/index.php?ctrl=Admin&act=edit"><b>Добавить новость</b></a><br><br>
+<p align="right"><a href="http://scriptius/App/Controllers/Admin/Index?status=logOut">Завершить сеанс </a></p>
+
+<a href="http://scriptius/App/Controllers/Admin/Create"><b>Добавить новость</b></a>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,8 +39,8 @@ if ($_SESSION['redirectMessage']) {           //Здесь в случае пе�
             <div class="panel panel-default">
                 <div class="panel-heading">
 
-                    <a href="http://scriptius/index.php?ctrl=Admin&act=edit&id=<?= $article->id ?>">Редактировать</a>
-                    <a href="http://scriptius/index.php?ctrl=Admin&act=Del&id=<?= $article->id ?>">Удалить</a>
+                    <a href="http://scriptius/App/Controllers/Admin/edit?id=<?= $article->id ?>">Редактировать</a>
+                    <a href="http://scriptius/App/Controllers/Admin/Del?id=<?= $article->id ?>">Удалить</a>
                     <?php endfoeach;
                     if (!empty($article)) :
                         ?>

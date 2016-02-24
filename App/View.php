@@ -6,16 +6,6 @@ class View implements \Countable, \ArrayAccess
 {
  use magicMethods;
 
-//    protected $data = [];
-
-//    public function __construct($offset, $value) {
-//        $this->container = array(
-//            "one"   => 1,
-//            "two"   => 2,
-//            "three" => 3,
-//        );
-//    }
-
     public function offsetSet($offset, $value) {
         if (is_null($offset)) {
             $this->container[] = $value;

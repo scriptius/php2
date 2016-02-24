@@ -1,21 +1,20 @@
 <?php
 
 require __DIR__ . '/autoload.php';
-/*
-  $url = $_SERVER['REQUEST_URI'];
-  $controller = new \App\Controllers\News();
-  $action = $_GET['action'] ?: 'Index';
-  $controller->action($action);
- * */
 
+$pathDefault = ($_SERVER['REQUEST_URI'] != '/') ? $_SERVER['REQUEST_URI'] : '/App/Controllers/News/Index';
+$path = explode('/', parse_url($pathDefault, PHP_URL_PATH));
+$action = array_pop($path);
+array_shift($path);
+$nameCtrl = implode('\\', $path);
 
-$action = $_GET['act'] ? : 'Index';
-
-$nameCtrl = '\App\Controllers\\';
-$nameCtrl .= (string) $_GET['ctrl'] ? : 'News';
-
-$controller = new $nameCtrl;
-
-
-$controller->action($action);
+try {
+    App\Loader::start($nameCtrl, $action);
+} catch (\App\Exceptions\Db $e) {
+    $e->view->errors = $e->messageForUsers;
+    $e->view->display('App\templates\DatabaseError.php');
+} catch (App\Exceptions\Error404 $e) {
+    $e->view->errors = $e->messageForUsers;
+    $e->view->display('App\templates\Error404.php');
+}
 

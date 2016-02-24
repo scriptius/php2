@@ -1,7 +1,9 @@
 <?php
 
 namespace App;
+
 use App\Db;
+
 abstract class Model {
 
     const TABLE = '';
@@ -9,14 +11,14 @@ abstract class Model {
     public static function findAll() {
         $db = Db::instance();
         return $db->query(
-            'SELECT * FROM ' . static::TABLE, static::class
+                        'SELECT * FROM ' . static::TABLE, static::class
         );
     }
 
     public static function findById($id) {
         $db = Db::instance();
         $res = $db->query(
-            'SELECT * FROM ' . static::TABLE . ' WHERE id = :param', static::class, [':param' => $id]
+                'SELECT * FROM ' . static::TABLE . ' WHERE id = :param', static::class, [':param' => $id]
         );
 
         return (!empty($res[0])) ? $res[0] : false;
@@ -33,7 +35,7 @@ abstract class Model {
         $columns = [];
         $values = [];
         foreach ($this as $k => $v) {
-            if ('id' == $k || 'author_id' == $k || 'data' == $k) {
+            if ('id' == $k || 'data' == $k) {
                 continue;
             }
             $columns[] = $k;
@@ -45,28 +47,22 @@ abstract class Model {
 VALUES
 (' . implode(',', array_keys($values)) . ')
         ';
-        echo $sql;
-var_dump($values);
+
+
         $db = Db::instance();
-        $res=$db->execute($sql, $values);
-        var_dump($res);
-        if ($res['status']) {
-            $this->id = $res['lastId'];
-            echo 'Запись успешно вставлена под номером - ' . $this->id;
-            return true;
-        } else {
-            echo 'Вставка записи не удалась!';
-            return false;
-        }
+        var_dump($sql);
+        var_dump($values);
+
+        return $db->execute($sql, $values);
     }
 
     public function update() {
-        
+
         if ($this->isNew()) {
             return;
-        }echo 'fvdf';
+        }
         foreach ($this as $k => $v) {
-if ('id' == $k || 'author_id' == $k || 'data' == $k) {
+            if ('id' == $k ||  'data' == $k) {
                 continue;
             }
             $colums[] = $k . ' = :' . $k;
@@ -74,8 +70,6 @@ if ('id' == $k || 'author_id' == $k || 'data' == $k) {
         }
 
         $sql = sprintf('UPDATE ' . static::TABLE . ' SET ' . implode(',', $colums) . ' WHERE id = %d', $this->id);
-        var_dump($sql);
-        var_dump( $values);
         $db = Db::instance();
         if ($db->execute($sql, $values)) {
             return true;
@@ -86,9 +80,9 @@ if ('id' == $k || 'author_id' == $k || 'data' == $k) {
 
     public function save() {
         if ($this->isNew()) {
-            $res= $this->insert();
+            $res = $this->insert();
         } else {
-            $res=$this->update();
+            $res = $this->update();
         }return $res;
     }
 
@@ -98,13 +92,30 @@ if ('id' == $k || 'author_id' == $k || 'data' == $k) {
 
             $db = Db::instance();
             if ($db->execute($sql)) {
-                echo 'Удаление id - ' . $this->id . ' из таблицы ' . static::TABLE . '  проведено успешно!';
                 return true;
             }
         } else {
-            echo ' Удаление не проведено';
             return false;
         }
+    }
+
+    public function fill(array $data) {
+        $e = new MultiException();
+        foreach ($data as $k => $v) {
+            if (property_exists($this, $k)) {
+                switch ($k) {
+                    case $data[$k] == '' and ! in_array($k, ['id', 'author_id']) :
+                        $e[] = new \Exception('Пустые значения полей запрещены');
+                    case strlen($data[$k]) < 5 and ! in_array($k, ['id', 'author_id']):
+                        $e[] = new \Exception('Значениe "' . $k . '" должно быть не короче 5 символов');
+                        $e->inLog();
+                        throw $e;
+                }
+                $this->$k = $v;
+            }
+
+        }
+        return $this;
     }
 
 }

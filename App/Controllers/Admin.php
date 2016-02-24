@@ -3,18 +3,15 @@
 namespace App\Controllers;
 
 use App\View;
-use App\Controller;
+use App\ControllerBackend;
 use App\Models\News;
+use App\Models\Author;
+use \App\MultiException;
 
-class Admin extends Controller {
-
-    protected $view;
-
-    public function __construct() {
-        $this->view = new View();
-    }
+class Admin extends ControllerBackend {
 
     protected function actionIndex() {
+
         $this->view->title = 'Админ-панель!';
         $this->view->news = \App\Models\News::findAll();
         $this->view->display(__DIR__ . '/../templates/admin/index.php');
@@ -24,37 +21,51 @@ class Admin extends Controller {
         
     }
 
-    public function actionEdit() {
-
+    protected function actionEdit() {
         $id = (int) $_GET['id'];
-        var_dump($this->view->forEdit);
-        $this->view->forEdit = (!empty($id)) ? News::findById($id) : NULL;
-        $this->view->display(__DIR__ . '/../templates/admin/edit.php');
+        $forConvertObjToArray = News::findById($id);
+        foreach ($forConvertObjToArray as $key => $value) {
+            $array[$key] = $forConvertObjToArray->$key;
+        }
+        $this->view->dataForFields = $array;
+        $this->view->authors = Author::findAll();
+        $this->view->display($_SERVER['DOCUMENT_ROOT'] . '\App\templates\admin\edit.php');
+    }
+
+    protected function actionCreate() {
+        $this->view->authors = Author::findAll();
+        $this->view->display($_SERVER['DOCUMENT_ROOT'] . '\App\templates\admin\create.php');
     }
 
     public function actionSave() {
-        var_dump($_POST);
-        $forSave = new News();
-//        if(!empty($_POST['id'])){
-//            echo 'dvbfb';
-        $forSave->id = $_POST['id'];
-        $forSave->author_id = $_POST['author_id'];
-        $forSave->title = $_POST['title'];
-        $forSave->text = $_POST['text'];
-        $forSave->date = $_POST['date'];
-        var_dump($forSave->id);
-        $forSave->update();
-//        }
-        $_SESSION['redirectMessage'] = ($forSave->save()) ? 'Данные успешно сохранены' : 'Данные сохранить не удалось';
-        header("Location: http://scriptius/index.php?ctrl=Admin&act=Index");
+        $_POST['author_id'] =  $_POST['author'];
+        $article = new News();
+        try {
+            $article->fill($_POST)->save();
+            $this->redirect('http://scriptius/App/Controllers/Admin/Index', 'Данные успешно сохранены!');
+        } catch (MultiException $e) {
+            $this->view->errors = $e;
+            $this->view->dataForFields = $_POST;
+            $this->view->authors = Author::findAll();
+            if (!empty($_POST['id'])) {
+                $this->view->display('App\templates\Admin\edit.php');
+            } else {
+                $this->view->display('App\templates\Admin\create.php');
+            }
+        }
     }
 
     public function actionDel() {
         if (!empty($_GET['id'])) {
             $deleteNews = News::findById((int) $_GET['id']);
-            $_SESSION['redirectMessage'] = ( $deleteNews->delete()) ? 'Данные успешно удалены' : 'Данные удалить не получилось';
-            header("Location: http://scriptius/index.php?ctrl=Admin&act=Index");
+
+            if ($deleteNews->delete()) {
+
+                $this->redirect('http://scriptius/App/Controllers/Admin/Index', 'Данные успешно удалены!');
+            } else {
+                $this->redirect('http://scriptius/App/Controllers/Admin/Index', 'Что-то пошло не так и удалить запись не получилось. Попробуйте еще раз!');
+            }
         }
     }
+
 }
-    

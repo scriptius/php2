@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Model;
 use App\DB;
 use App\magicMethods;
+use App\MultiException;
 
 /**
  * Class news
@@ -26,7 +27,7 @@ class News extends Model {
      * @return array Возвращает последние 3 новости
      */
     public function LastNews() {
-        $db = new Db();
+        $db = Db::instance();
         return $db->query(
                         'SELECT * FROM ' . static::TABLE . ' ORDER BY date DESC limit 3', static::class
         );
