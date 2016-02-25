@@ -35,11 +35,8 @@ class Db {
             throw $ex;
         }
         $res = $sth->fetchAll(\PDO::FETCH_CLASS, $class);
-        if (!empty($res)) {
             return $res;
-        } else {
-            throw new \App\Exceptions\Error404('Запись в БД не найдена',404);
-        }
+
     }
 
 }
