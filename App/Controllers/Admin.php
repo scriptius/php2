@@ -49,15 +49,6 @@ class Admin extends ControllerBackend {
             $actionName = 'error'.$e->getCode();
             $error->$actionName($e);
 
-
-//            $this->view->errors = $e;
-//            $this->view->dataForFields = $_POST;
-//            $this->view->authors = Author::findAll();
-            if (!empty($_POST['id'])) {
-                $this->view->display('App\templates\Admin\edit.php');
-            } else {
-                $this->view->display('App\templates\Admin\create.php');
-            }
         }
     }
 
