@@ -1,177 +1,199 @@
-23-02-2016 17:25:32 Ошибка:  Ошибка запроса - SELECT * FROM newsd
-23-02-2016 17:25:32 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 17:25:32 Строка или имя функции, где возникла ошибка:  App\Db::query
+
+25-02-2016 15:25:28 Ошибка:  Запрос не выполнился
+25-02-2016 15:25:28 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
+25-02-2016 15:25:28 Строка или имя функции, где возникла ошибка:  34
+25-02-2016 15:25:28 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Model.php(14): App\Db->query('SELECT * FROM n...', 'App\\Models\\News')
+#1 C:\OpenServer\domains\scriptius\App\Controllers\News.php(15): App\Model::findAll()
+#2 C:\OpenServer\domains\scriptius\App\ControllerFrontend.php(17): App\Controllers\News->actionIndex()
+#3 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerFrontend->action('Index')
+#4 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Index')
+#5 {main}Запрос: SELECT * FROM newsgg Параметры Отсутствуют
 ==============================================================
-23-02-2016 17:28:25 Ошибка:  Ошибка запроса - SELECT * FROM newsd
-23-02-2016 17:28:25 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 17:28:25 Строка или имя функции, где возникла ошибка:  App\Db::query
+25-02-2016 15:27:08 Ошибка:  Запрос не выполнился
+25-02-2016 15:27:08 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
+25-02-2016 15:27:08 Строка или имя функции, где возникла ошибка:  34
+25-02-2016 15:27:08 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Model.php(14): App\Db->query('SELECT * FROM n...', 'App\\Models\\News')
+#1 C:\OpenServer\domains\scriptius\App\Controllers\News.php(15): App\Model::findAll()
+#2 C:\OpenServer\domains\scriptius\App\ControllerFrontend.php(17): App\Controllers\News->actionIndex()
+#3 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerFrontend->action('Index')
+#4 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Index')
+#5 {main}Запрос: SELECT * FROM newsgg Параметры Отсутствуют
 ==============================================================
-23-02-2016 17:30:27 Ошибка:  Ошибка запроса - SELECT * FROM newsd
-23-02-2016 17:30:27 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 17:30:27 Строка или имя функции, где возникла ошибка:  App\Db::query
-23-02-2016 17:30:27 Дополнительные сведения:  Отсутствуют
+25-02-2016 15:29:49 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:29:49 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:29:49 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:29:49 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 17:31:59 Ошибка:  SQLSTATE[HY000] [1049] Unknown database 'php2у'
-23-02-2016 17:31:59 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 17:31:59 Строка или имя функции, где возникла ошибка:  13
-23-02-2016 17:31:59 Дополнительные сведения:  Отсутствуют
+25-02-2016 15:30:41 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:30:41 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:30:41 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:30:41 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 17:35:26 Ошибка:  Ошибка запроса - SELECT * FROM newsd
-23-02-2016 17:35:26 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 17:35:26 Строка или имя функции, где возникла ошибка:  App\Db::query
-23-02-2016 17:35:26 Дополнительные сведения:  Отсутствуют
+25-02-2016 15:31:48 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:31:48 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:31:48 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:31:48 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 17:51:30 Ошибка:  Ресурс не найден
-23-02-2016 17:51:30 Файл или ресурс где произошло ислючение:  Запрос: SELECT * FROM users WHERE id = :param; Параметры: Array Файл:C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 17:51:30 Строка или имя функции, где возникла ошибка:  
-23-02-2016 17:51:30 Дополнительные сведения:  Отсутствуют
+25-02-2016 15:32:13 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:32:13 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:32:13 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:32:13 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:08:54 Ошибка:  Запрашиваемая(ые) запись(си) не найдены 
-23-02-2016 18:08:54 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 18:08:54 Строка или имя функции, где возникла ошибка:  App\Db::query
-23-02-2016 18:08:54 Дополнительные сведения:  SELECT * FROM users WHERE id = :param; Параметры: Array
+25-02-2016 15:32:39 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:32:39 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:32:39 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:32:39 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:10:10 Ошибка:  Запрашиваемая(ые) запись(си) не найдены 
-23-02-2016 18:10:10 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 18:10:10 Строка или имя функции, где возникла ошибка:  App\Db::query
-23-02-2016 18:10:10 Дополнительные сведения:  SELECT * FROM users WHERE id = :param; Параметры: Array
+25-02-2016 15:33:12 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:33:12 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:33:12 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:33:12 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:10:37 Ошибка:  Запрашиваемая(ые) запись(си) не найдены 
-23-02-2016 18:10:37 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 18:10:37 Строка или имя функции, где возникла ошибка:  App\Db::query
-23-02-2016 18:10:37 Дополнительные сведения:  SELECT * FROM users WHERE id = :param; Параметры: Array
+25-02-2016 15:34:55 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:34:55 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:34:55 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:34:55 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:24:23 Ошибка:  Запрашиваемая(ые) запись(си) не найдены 
-23-02-2016 18:24:23 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 18:24:23 Строка или имя функции, где возникла ошибка:  App\Db::query
-23-02-2016 18:24:23 Дополнительные сведения:  SELECT * FROM users WHERE id = :param; Параметры: 5
+25-02-2016 15:35:19 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:35:19 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:35:19 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:35:19 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:33:04 Ошибка:  Ошибка запроса - INSERT INTO news
-(title,text,date,author_id)
-VALUES
-(:title,:text,:date,:author_id)
-        
-23-02-2016 18:33:04 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 18:33:04 Строка или имя функции, где возникла ошибка:  App\Db::execute
-23-02-2016 18:33:04 Дополнительные сведения:  Отсутствуют
+25-02-2016 15:36:41 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:36:41 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:36:41 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:36:41 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:33:13 Ошибка:  Ошибка запроса - DELETE FROM news WHERE id = 64 
-23-02-2016 18:33:13 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 18:33:13 Строка или имя функции, где возникла ошибка:  App\Db::execute
-23-02-2016 18:33:13 Дополнительные сведения:  Отсутствуют
+25-02-2016 15:48:05 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:48:05 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:48:05 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:48:05 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:43:11 Ошибка:  Запрашиваемая(ые) запись(си) не найдены 
-23-02-2016 18:43:11 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 18:43:11 Строка или имя функции, где возникла ошибка:  App\Db::query
-23-02-2016 18:43:11 Дополнительные сведения:  SELECT * FROM news WHERE id = :param; Параметры: 66
+25-02-2016 15:54:41 Ошибка:  Вызвано мультиисключение
+25-02-2016 15:54:41 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 15:54:41 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 15:54:41 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:44:11 Ошибка:  Запрашиваемая(ые) запись(си) не найдены 
-23-02-2016 18:44:11 Файл или ресурс где произошло ислючение:  
-23-02-2016 18:44:11 Строка или имя функции, где возникла ошибка:  
-23-02-2016 18:44:11 Дополнительные сведения:  
+25-02-2016 16:06:49 Ошибка:  Вызвано мультиисключение
+25-02-2016 16:06:49 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 16:06:49 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 16:06:49 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:48:22 Ошибка:  Запрашиваемая(ые) запись(си) не найдены 
-23-02-2016 18:48:22 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Loader.php
-23-02-2016 18:48:22 Строка или имя функции, где возникла ошибка:  App\Loader::start
-23-02-2016 18:48:22 Дополнительные сведения:  
+25-02-2016 16:07:07 Ошибка:  Вызвано мультиисключение
+25-02-2016 16:07:07 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 16:07:07 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 16:07:07 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:48:53 Ошибка:  Запрашиваемая(ые) запись(си) не найдены 
-23-02-2016 18:48:53 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Loader.php
-23-02-2016 18:48:53 Строка или имя функции, где возникла ошибка:  App\Loader::start
-23-02-2016 18:48:53 Дополнительные сведения:  Отсутствует
+25-02-2016 16:07:57 Ошибка:  Вызвано мультиисключение
+25-02-2016 16:07:57 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
+25-02-2016 16:07:57 Строка или имя функции, где возникла ошибка:  99
+25-02-2016 16:07:57 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Controllers\Admin.php(44): App\Model->fill(Array)
+#1 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(24): App\Controllers\Admin->actionSave()
+#2 C:\OpenServer\domains\scriptius\App\Loader.php(15): App\ControllerBackend->action('Save')
+#3 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Save')
+#4 {main}Сообщения Мультиисключения: Значениe "title" должно быть не короче 5 символов
+
 ==============================================================
-23-02-2016 18:49:16 Ошибка:  Запрашиваемая(ые) запись(си) не найдены 
-23-02-2016 18:49:16 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Loader.php
-23-02-2016 18:49:16 Строка или имя функции, где возникла ошибка:  App\Loader::start
-23-02-2016 18:49:16 Дополнительные сведения:  Отсутствует
+25-02-2016 16:15:45 Ошибка:  Не найден экшн - actionIndexgg в контроллере - App\Controllers\Admin
+25-02-2016 16:15:45 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Loader.php
+25-02-2016 16:15:45 Строка или имя функции, где возникла ошибка:  11
+25-02-2016 16:15:45 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Indexgg')
+#1 {main}Запрос: App\Controllers\Admin Параметры Отсутствуют
 ==============================================================
-23-02-2016 18:50:43 Ошибка:  Не найден экшн - Index%D0%B0 в контроллере - App\Controllers\Admin
-23-02-2016 18:50:43 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Loader.php
-23-02-2016 18:50:43 Строка или имя функции, где возникла ошибка:  App\Loader::start
-23-02-2016 18:50:43 Дополнительные сведения:  Отсутствует
+25-02-2016 16:16:36 Ошибка:  Запись в БД не найдена
+25-02-2016 16:16:36 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
+25-02-2016 16:16:36 Строка или имя функции, где возникла ошибка:  41
+25-02-2016 16:16:36 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Model.php(21): App\Db->query('SELECT * FROM n...', 'App\\Models\\News', Array)
+#1 C:\OpenServer\domains\scriptius\App\Controllers\News.php(22): App\Model::findById(400)
+#2 C:\OpenServer\domains\scriptius\App\ControllerFrontend.php(17): App\Controllers\News->actionOne()
+#3 C:\OpenServer\domains\scriptius\App\Loader.php(12): App\ControllerFrontend->action('One')
+#4 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'One')
+#5 {main}Запрос: SELECT * FROM news WHERE id = :param Параметры :param = 400
 ==============================================================
-23-02-2016 18:51:30 Ошибка:  Не найден экшн - actionIndexrfar в контроллере - App\Controllers\Admin
-23-02-2016 18:51:30 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Loader.php
-23-02-2016 18:51:30 Строка или имя функции, где возникла ошибка:  App\Loader::start
-23-02-2016 18:51:30 Дополнительные сведения:  Отсутствует
+25-02-2016 16:18:21 Ошибка:  Запись в БД не найдена
+25-02-2016 16:18:21 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
+25-02-2016 16:18:21 Строка или имя функции, где возникла ошибка:  41
+25-02-2016 16:18:21 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Models\User.php(22): App\Db->query('SELECT pass FRO...', 'App\\Models\\User', Array)
+#1 C:\OpenServer\domains\scriptius\App\Authorization.php(14): App\Models\User::findUserByLogin('xxx')
+#2 C:\OpenServer\domains\scriptius\App\ControllerBackend.php(16): App\Authorization::logIn()
+#3 C:\OpenServer\domains\scriptius\App\Loader.php(12): App\ControllerBackend->action('Index')
+#4 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Index')
+#5 {main}Запрос: SELECT pass FROM users WHERE login = :login Параметры :login = xxx
 ==============================================================
-23-02-2016 18:56:42 Ошибка:  Запись в БД не найдена 
-23-02-2016 18:56:42 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-23-02-2016 18:56:42 Строка или имя функции, где возникла ошибка:  App\Db::query
-23-02-2016 18:56:42 Дополнительные сведения:  SELECT * FROM users WHERE id = :param; Параметры: 5
+25-02-2016 16:19:54 Ошибка:  Не найден экшн - actionIndexttt в контроллере - App\Controllers\News
+25-02-2016 16:19:54 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Loader.php
+25-02-2016 16:19:54 Строка или имя функции, где возникла ошибка:  11
+25-02-2016 16:19:54 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Indexttt')
+#1 {main}Запрос: App\Controllers\News Параметры Отсутствуют
 ==============================================================
-23-02-2016 19:45:31 Ошибка:  Значениe "title" должно быть не короче 5 символов
-23-02-2016 19:45:31 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
-23-02-2016 19:45:31 Строка или имя функции, где возникла ошибка:  114
-23-02-2016 19:45:31 Дополнительные сведения:  Отсутствуют
-==============================================================
-23-02-2016 19:46:34 Ошибка:  Значениe "title" должно быть не короче 5 символов
-23-02-2016 19:46:34 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
-23-02-2016 19:46:34 Строка или имя функции, где возникла ошибка:  114
-23-02-2016 19:46:34 Дополнительные сведения:  Отсутствуют
-==============================================================
-23-02-2016 19:46:43 Ошибка:  Значениe "text" должно быть не короче 5 символов
-23-02-2016 19:46:43 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Model.php
-23-02-2016 19:46:43 Строка или имя функции, где возникла ошибка:  114
-23-02-2016 19:46:43 Дополнительные сведения:  Отсутствуют
-==============================================================
-24-02-2016 09:05:30 Ошибка:  Запись в БД не найдена 
-24-02-2016 09:05:30 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 09:05:30 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 09:05:30 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 1
-==============================================================
-24-02-2016 09:18:58 Ошибка:  Запись в БД не найдена 
-24-02-2016 09:18:58 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 09:18:58 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 09:18:58 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 4
-==============================================================
-24-02-2016 09:19:17 Ошибка:  Запись в БД не найдена 
-24-02-2016 09:19:17 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 09:19:17 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 09:19:17 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 1
-==============================================================
-24-02-2016 09:27:28 Ошибка:  Запись в БД не найдена 
-24-02-2016 09:27:28 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 09:27:28 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 09:27:28 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 1
-==============================================================
-24-02-2016 09:28:26 Ошибка:  Запись в БД не найдена 
-24-02-2016 09:28:26 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 09:28:26 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 09:28:26 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 1
-==============================================================
-24-02-2016 09:50:09 Ошибка:  Запись в БД не найдена 
-24-02-2016 09:50:09 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 09:50:09 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 09:50:09 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 4
-==============================================================
-24-02-2016 11:19:01 Ошибка:  Запись в БД не найдена 
-24-02-2016 11:19:01 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 11:19:01 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 11:19:01 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 1
-==============================================================
-24-02-2016 11:23:17 Ошибка:  Запись в БД не найдена 
-24-02-2016 11:23:17 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 11:23:17 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 11:23:17 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 4
-==============================================================
-24-02-2016 11:23:51 Ошибка:  Запись в БД не найдена 
-24-02-2016 11:23:51 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 11:23:51 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 11:23:51 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 1
-==============================================================
-24-02-2016 11:24:25 Ошибка:  Запись в БД не найдена 
-24-02-2016 11:24:25 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 11:24:25 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 11:24:25 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 1
-==============================================================
-24-02-2016 11:25:02 Ошибка:  Запись в БД не найдена 
-24-02-2016 11:25:02 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 11:25:02 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 11:25:02 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 4
-==============================================================
-24-02-2016 11:25:57 Ошибка:  Запись в БД не найдена 
-24-02-2016 11:25:57 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
-24-02-2016 11:25:57 Строка или имя функции, где возникла ошибка:  App\Db::query
-24-02-2016 11:25:57 Дополнительные сведения:  SELECT * FROM authors WHERE name = :name; Параметры: 4
+25-02-2016 16:21:44 Ошибка:  Не найден экшн - actionIndexttt в контроллере - App\Controllers\News
+25-02-2016 16:21:44 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Loader.php
+25-02-2016 16:21:44 Строка или имя функции, где возникла ошибка:  11
+25-02-2016 16:21:44 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Indexttt')
+#1 {main}Запрос: App\Controllers\News Параметры Отсутствуют
 ==============================================================

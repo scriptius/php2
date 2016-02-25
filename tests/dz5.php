@@ -3,8 +3,8 @@
 require $_SERVER['DOCUMENT_ROOT'] . '\autoload.php';
 $test = new \tests\Test1();
 
-var_dump($test);
-echo $test->test;
+//var_dump($test);
+//echo $test->test;
 
 //try {
 //    $user = App\Models\User::findById(5);

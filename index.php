@@ -11,10 +11,14 @@ $nameCtrl = implode('\\', $path);
 try {
     App\Loader::start($nameCtrl, $action);
 } catch (\App\Exceptions\Db $e) {
-    $e->view->errors = $e->messageForUsers;
-    $e->view->display('App\templates\DatabaseError.php');
+    $error = new \App\Controllers\Error();
+    $actionName = 'error'.$e->getCode();
+    $error->$actionName($e);
+
 } catch (App\Exceptions\Error404 $e) {
-    $e->view->errors = $e->messageForUsers;
-    $e->view->display('App\templates\Error404.php');
+    $error = new \App\Controllers\Error();
+    $error = new \App\Controllers\Error();
+    $actionName = 'error'.$e->getCode();
+    $error->$actionName($e);
 }
 

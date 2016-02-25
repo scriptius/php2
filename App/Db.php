@@ -12,9 +12,7 @@ class Db {
         try {
             $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=php2', 'root', '');
         } catch (\PDOException $e) {
-            $ex = new \App\Exceptions\Db('Уважаемый пользователь, связь с базой потерялась:');
-            $ex->connect($e);
-//            throw new \App\Exceptions\Db('Отсутствует связь с базой: ', ['message' => $e->getMessage(), 'file' => $e->getFile()]);
+            throw new \App\Exceptions\Db($e,100);
         }
     }
 
@@ -22,8 +20,8 @@ class Db {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($data);
         if ('00000' != $sth->errorCode()) {
-            $ex = new \App\Exceptions\Db('К сожалению, что-то пошло не так и Запрос не выполнился');
-            $ex->request('Ошибка запроса - ' . $sth->queryString, __FILE__, __METHOD__);
+            $ex = new \App\Exceptions\Db('Запрос не выполнился',101);
+            throw $ex;
         } else {
             return true;
         }
@@ -33,14 +31,14 @@ class Db {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($data);
         if ('00000' != $sth->errorCode()) {
-            $ex = new \App\Exceptions\Db('К сожалению, что-то пошло не так и Запрос не выполнился');
-            $ex->request('Ошибка запроса - ' . $sth->queryString, __FILE__, __METHOD__);
+            $ex = new \App\Exceptions\Db('Запрос не выполнился',101);
+            throw $ex;
         }
         $res = $sth->fetchAll(\PDO::FETCH_CLASS, $class);
         if (!empty($res)) {
             return $res;
         } else {
-            throw new \App\Exceptions\Error404('К сожалению, то, что Вы искали пока отсутствует в БД  ', 'Запись в БД не найдена ', __FILE__, __METHOD__, $sql . '; Параметры: ' . implode(',', $data));
+            throw new \App\Exceptions\Error404('Запись в БД не найдена',404);
         }
     }
 

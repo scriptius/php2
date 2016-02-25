@@ -11,14 +11,14 @@ abstract class Model {
     public static function findAll() {
         $db = Db::instance();
         return $db->query(
-                        'SELECT * FROM ' . static::TABLE, static::class
+            'SELECT * FROM ' . static::TABLE, static::class
         );
     }
 
     public static function findById($id) {
         $db = Db::instance();
         $res = $db->query(
-                'SELECT * FROM ' . static::TABLE . ' WHERE id = :param', static::class, [':param' => $id]
+            'SELECT * FROM ' . static::TABLE . ' WHERE id = :param', static::class, [':param' => $id]
         );
 
         return (!empty($res[0])) ? $res[0] : false;
@@ -48,11 +48,7 @@ VALUES
 (' . implode(',', array_keys($values)) . ')
         ';
 
-
         $db = Db::instance();
-        var_dump($sql);
-        var_dump($values);
-
         return $db->execute($sql, $values);
     }
 
@@ -100,21 +96,24 @@ VALUES
     }
 
     public function fill(array $data) {
-        $e = new MultiException();
+        $e = new MultiException('Вызвано мультиисключение',102);
+
         foreach ($data as $k => $v) {
             if (property_exists($this, $k)) {
                 switch ($k) {
-                    case $data[$k] == '' and ! in_array($k, ['id', 'author_id']) :
+                    case $data[$k] == '' and !in_array($k, ['id', 'author_id']) :
                         $e[] = new \Exception('Пустые значения полей запрещены');
-                    case strlen($data[$k]) < 5 and ! in_array($k, ['id', 'author_id']):
+                    case strlen($data[$k]) < 5 and !in_array($k, ['id', 'author_id']):
                         $e[] = new \Exception('Значениe "' . $k . '" должно быть не короче 5 символов');
-                        $e->inLog();
-                        throw $e;
+                throw $e;
                 }
+
                 $this->$k = $v;
             }
 
         }
+//        var_dump($e);
+//        die;
         return $this;
     }
 

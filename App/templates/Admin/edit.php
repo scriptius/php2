@@ -10,17 +10,16 @@ if (!empty($errors)) {
     <tr>
         <td>
             <form  method="POST" action="http://scriptius/App/Controllers/Admin/Save">
-                <input type="hidden" name="id" size="48" value="<?= $dataForFields['id']; ?>" > 
+                <input type="hidden" name="id" size="48" value="<?= $dataForFields['id']; ?>" >
                 <input type="hidden" name="author_id" size="48" value="<?= $dataForFields['author_id']; ?>" >
                 <select name="author" autofocus="" required="">
                     <?php foreach ($authors as $key => $author): ?>
-                        <option value="<?= $author->id; ?>"<?php if ($author->id == $dataForFields['author_id']) { echo 'selected';} ?>> <?= $author->name; ?></option>
+                        <option value="<?= $author->id; ?>"<?php if ($author->id == $dataForFields['author_id']): ?> selected <?php endif; ?> ><?= $author->name; ?></option>
                     <?php endforeach; ?>
                 </select><br>
                 <br><input required="" type="text" name="title" size="48" value="<?= $dataForFields['title']; ?>" > <br>
                 <br><textarea required="" cols="50" maxlength="10000" rows="20" name="text"><?= $dataForFields['text']; ?></textarea><br>
                 <br><input required="" type="text" name="date" size="48" value="<?= date('Y-m-d H:i:s', time()); ?>" > <br>
-
                 <br><input type="submit" value="Опубликовать">
             </form>
         </td>
