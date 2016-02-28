@@ -18,7 +18,7 @@ class Admin extends ControllerBackend {
     }
 
     protected function beforeAction() {
-        
+
     }
 
     protected function actionEdit() {
@@ -38,19 +38,17 @@ class Admin extends ControllerBackend {
     }
 
     public function actionSave() {
+        $_POST['author_id'] =  $_POST['author'];
         $article = new News();
         try {
             $article->fill($_POST)->save();
             $this->redirect('http://scriptius/App/Controllers/Admin/Index', 'Данные успешно сохранены!');
         } catch (MultiException $e) {
-            $this->view->errors = $e;
-            $this->view->dataForFields = $_POST;
-            $this->view->authors = Author::findAll();
-            if (!empty($_POST['id'])) {
-                $this->view->display('App\templates\Admin\edit.php');
-            } else {
-                $this->view->display('App\templates\Admin\create.php');
-            }
+
+            $error = new \App\Controllers\Error();
+            $actionName = 'error'.$e->getCode();
+            $error->$actionName($e);
+
         }
     }
 

@@ -29,7 +29,7 @@ class News extends Model {
     public function LastNews() {
         $db = Db::instance();
         return $db->query(
-                        'SELECT * FROM ' . static::TABLE . ' ORDER BY date DESC limit 3', static::class
+            'SELECT * FROM ' . static::TABLE . ' ORDER BY date DESC limit 3', static::class
         );
     }
 

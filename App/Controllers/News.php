@@ -17,10 +17,10 @@ class News extends ControllerFrontend {
     }
 
     protected function actionOne() {
-
         $id = (int) $_GET['id'];
-        $this->view->article = \App\Models\News::findById($id);
+        if(false == $this->view->article = \App\Models\News::findById($id)){
+          throw new \App\Exceptions\Error404('Запись с таким id не найдена',404);
+        }
         $this->view->display(__DIR__ . '/../templates/one.php');
+         }
     }
-
-}

@@ -2,15 +2,21 @@
 
 namespace App;
 
-class MultiException extends \Exception implements \ArrayAccess, \Iterator {
+class MultiException extends \App\Exceptions\Core implements \ArrayAccess, \Iterator {
 
     use TCollection;
 
-    public function inLog() {
-        foreach ($this->data as $key => $Obj) {
-            var_dump($Obj);
-            $log = new \App\Logger($Obj->getMessage(), $Obj->getFile(), $Obj->getLine());
+    public function getMessagesFromMultiexceptionToString()
+    {
+        $messagesMultiexceptions = '';
+        foreach($this as $k => $v){
+           $messagesMultiexceptions .=  $v->getMessage().PHP_EOL;
         }
+        return $messagesMultiexceptions;
     }
 
+    public function getDataForEditingFromPost(){
+return $this->getTrace()[0]['args'][0];
+
+    }
 }

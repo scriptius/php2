@@ -7,7 +7,7 @@
     <body>
         Страница не найдена!
         <?php
-        echo $errors;
+        echo $messageForUsers;
         ?>
     </body>
 </html>

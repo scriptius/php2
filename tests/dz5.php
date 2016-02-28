@@ -1,17 +1,21 @@
 <?php
 
 require $_SERVER['DOCUMENT_ROOT'] . '\autoload.php';
+$test = new \tests\Test1();
 
-try {
-    $user = App\Models\User::findById(5);
-    var_dump($user);
-} catch (\App\Exceptions\Db $e) {
-    $e->view->errors = $e->messageForUsers;
-    $e->view->display('\..\App\templates\DatabaseError.php');
-} catch (App\Exceptions\Error404 $e) {
-    $e->view->errors = $e->messageForUsers;
-    $e->view->display('\..\App\templates\Error404.php');
-}
+//var_dump($test);
+//echo $test->test;
+
+//try {
+//    $user = App\Models\User::findById(5);
+//    var_dump($user);
+//} catch (\App\Exceptions\Db $e) {
+//    $e->view->errors = $e->messageForUsers;
+//    $e->view->display('\..\App\templates\DatabaseError.php');
+//} catch (App\Exceptions\Error404 $e) {
+//    $e->view->errors = $e->messageForUsers;
+//    $e->view->display('\..\App\templates\Error404.php');
+//}
 //
 //try{
 //   $user = App\Models\User::findById(5);
@@ -50,3 +54,4 @@ try {
 //    echo var_dump($e[0]->getMessage());
 //}
 
+?>
