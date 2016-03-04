@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use App\Model;
 use App\Db;
 
@@ -9,14 +10,15 @@ use App\Db;
  * @package App\Models
  * @property integer $id
  * @property string $author
-
  */
-class Author extends Model{
+class Author extends Model
+{
     const TABLE = 'authors';
     public $id;
     public $name;
-    
-    public static function findByName($name){
+
+    public static function findByName($name)
+    {
         $db = Db::instance();
         $res = $db->query(
             'SELECT * FROM ' . static::TABLE . ' WHERE name = :name', static::class, [':name' => $name]

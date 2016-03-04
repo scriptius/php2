@@ -4,9 +4,10 @@ namespace App;
 
 class View implements \Countable, \ArrayAccess
 {
- use magicMethods;
+    use magicMethods;
 
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value)
+    {
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
@@ -14,19 +15,23 @@ class View implements \Countable, \ArrayAccess
         }
     }
 
-    public function offsetExists($offset) {
+    public function offsetExists($offset)
+    {
         return isset($this->data[$offset]);
     }
 
-    public function offsetUnset($offset) {
+    public function offsetUnset($offset)
+    {
         unset($this->data[$offset]);
     }
 
-    public function offsetGet($offset) {
+    public function offsetGet($offset)
+    {
         return isset($this->data[$offset]) ? $this->data[$offset] : null;
     }
 
-    public function render($template) {
+    public function render($template)
+    {
         ob_start();
         foreach ($this->data as $prop => $value) {
 
@@ -38,7 +43,8 @@ class View implements \Countable, \ArrayAccess
         return $content;
     }
 
-    public function display($template) {
+    public function display($template)
+    {
         echo $this->render($template);
     }
 
@@ -51,7 +57,8 @@ class View implements \Countable, \ArrayAccess
      * The return value is cast to an integer.
      * @since 5.1.0
      */
-    public function count() {
+    public function count()
+    {
         return count($this->data);
     }
 

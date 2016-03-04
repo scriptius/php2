@@ -17,7 +17,7 @@ class User extends Model
 
     public static function findUserByLogin($login)
     {
-             $db = Db::instance();
+        $db = Db::instance();
         $res = $db->query(
             'SELECT pass FROM ' . static::TABLE . ' WHERE login = :login', static::class, [':login' => $login]
         );
@@ -25,5 +25,5 @@ class User extends Model
         return (!empty($res[0])) ? $res[0] : false;;
     }
 
-  
+
 }

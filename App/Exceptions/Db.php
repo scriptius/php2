@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
-class Db extends Core {
+class Db extends Core
+{
 
 }

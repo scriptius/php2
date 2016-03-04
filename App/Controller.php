@@ -2,8 +2,9 @@
 namespace App;
 
 
-abstract class Controller{
-       public function action($action)
+abstract class Controller
+{
+    public function action($action)
     {
         $methodName = 'action' . $action;
         $this->beforeAction();

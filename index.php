@@ -12,13 +12,13 @@ try {
     App\Loader::start($nameCtrl, $action);
 } catch (\App\Exceptions\Db $e) {
     $error = new \App\Controllers\Error();
-    $actionName = 'error'.$e->getCode();
+    $actionName = 'error' . $e->getCode();
     $error->$actionName($e);
 
 } catch (App\Exceptions\Error404 $e) {
     $error = new \App\Controllers\Error();
     $error = new \App\Controllers\Error();
-    $actionName = 'error'.$e->getCode();
+    $actionName = 'error' . $e->getCode();
     $error->$actionName($e);
 }
 

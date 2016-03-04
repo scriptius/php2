@@ -197,6 +197,7 @@
 25-02-2016 16:21:44 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Indexttt')
 #1 {main}Запрос: App\Controllers\News Параметры Отсутствуют
 ==============================================================
+<<<<<<< HEAD
 26-02-2016 22:16:25 Ошибка:  PDOException: SQLSTATE[HY000] [1049] Unknown database 'php25' in C:\OpenServer\domains\scriptius\App\Db.php:13
 Stack trace:
 #0 C:\OpenServer\domains\scriptius\App\Db.php(13): PDO->__construct('mysql:host=127....', 'root', '')
@@ -390,6 +391,25 @@ Stack trace:
 26-02-2016 23:46:47 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
 26-02-2016 23:46:47 Строка или имя функции, где возникла ошибка:  23
 26-02-2016 23:46:47 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Singleton.php(15): App\Db->__construct()
+#1 C:\OpenServer\domains\scriptius\App\Model.php(12): App\Db::instance()
+#2 C:\OpenServer\domains\scriptius\App\Controllers\News.php(15): App\Model::findAll()
+#3 C:\OpenServer\domains\scriptius\App\ControllerFrontend.php(17): App\Controllers\News->actionIndex()
+#4 C:\OpenServer\domains\scriptius\App\Loader.php(12): App\ControllerFrontend->action('Index')
+#5 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Index')
+#6 {main}
+04-03-2016 16:14:22 Ошибка:  PDOException: SQLSTATE[HY000] [1049] Unknown database 'php24' in C:\OpenServer\domains\scriptius\App\Db.php:20
+Stack trace:
+#0 C:\OpenServer\domains\scriptius\App\Db.php(20): PDO->__construct('mysql:host=127....', 'root', '')
+#1 C:\OpenServer\domains\scriptius\App\Singleton.php(15): App\Db->__construct()
+#2 C:\OpenServer\domains\scriptius\App\Model.php(12): App\Db::instance()
+#3 C:\OpenServer\domains\scriptius\App\Controllers\News.php(15): App\Model::findAll()
+#4 C:\OpenServer\domains\scriptius\App\ControllerFrontend.php(17): App\Controllers\News->actionIndex()
+#5 C:\OpenServer\domains\scriptius\App\Loader.php(12): App\ControllerFrontend->action('Index')
+#6 C:\OpenServer\domains\scriptius\index.php(12): App\Loader::start('App\\Controllers...', 'Index')
+#7 {main}
+04-03-2016 16:14:22 Файл или ресурс где произошло ислючение:  C:\OpenServer\domains\scriptius\App\Db.php
+04-03-2016 16:14:22 Строка или имя функции, где возникла ошибка:  23
+04-03-2016 16:14:22 Дополнительные сведения:  Трассировка: #0 C:\OpenServer\domains\scriptius\App\Singleton.php(15): App\Db->__construct()
 #1 C:\OpenServer\domains\scriptius\App\Model.php(12): App\Db::instance()
 #2 C:\OpenServer\domains\scriptius\App\Controllers\News.php(15): App\Model::findAll()
 #3 C:\OpenServer\domains\scriptius\App\ControllerFrontend.php(17): App\Controllers\News->actionIndex()

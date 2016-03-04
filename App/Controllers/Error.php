@@ -7,6 +7,7 @@
  */
 
 namespace App\Controllers;
+
 /**
  * list error codes
  * 100 - connect with DB
@@ -16,6 +17,7 @@ namespace App\Controllers;
 
 use App\View;
 use App\Models\Author;
+
 class Error
 {
     protected $view;
@@ -47,16 +49,18 @@ class Error
         $log = new \App\Logger($e->getMessage(), $e->getFile(), $e->getLine(), 'Трассировка: ' . $e->getTraceAsString() . 'Запрос: ' . $e->getSqlAndParamsFromTrace());
 
     }
-    public function error102(\App\MultiException $e){
+
+    public function error102(\App\MultiException $e)
+    {
         $this->view->dataForFields = $e->getDataForEditingFromPost();
         $this->view->errors = $e;
         $this->view->authors = Author::findAll();
 
-        if(!empty($e->getDataForEditingFromPost()['id'])){
-            $this->view->display($_SERVER['DOCUMENT_ROOT'].'\App\templates\admin\edit.php');
-        }else{
+        if (!empty($e->getDataForEditingFromPost()['id'])) {
+            $this->view->display($_SERVER['DOCUMENT_ROOT'] . '\App\templates\admin\edit.php');
+        } else {
             $this->view->display('App\templates\Admin\create.php');
         }
-        $log = new \App\Logger($e->getMessage(), $e->getFile(), $e->getLine(), 'Трассировка: '. $e->getTraceAsString(). 'Сообщения Мультиисключения: '.$e->getMessagesFromMultiexceptionToString());
+        $log = new \App\Logger($e->getMessage(), $e->getFile(), $e->getLine(), 'Трассировка: ' . $e->getTraceAsString() . 'Сообщения Мультиисключения: ' . $e->getMessagesFromMultiexceptionToString());
     }
 }

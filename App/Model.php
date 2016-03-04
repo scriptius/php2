@@ -4,18 +4,21 @@ namespace App;
 
 use App\Db;
 
-abstract class Model {
+abstract class Model
+{
 
     const TABLE = '';
 
-    public static function findAll() {
+    public static function findAll()
+    {
         $db = Db::instance();
         return $db->query(
             'SELECT * FROM ' . static::TABLE, static::class
         );
     }
 
-    public static function findById($id) {
+    public static function findById($id)
+    {
         $db = Db::instance();
         $res = $db->query(
             'SELECT * FROM ' . static::TABLE . ' WHERE id = :param', static::class, [':param' => $id]
@@ -24,11 +27,13 @@ abstract class Model {
         return (!empty($res[0])) ? $res[0] : false;
     }
 
-    public function isNew() {
+    public function isNew()
+    {
         return empty($this->id);
     }
 
-    public function insert() {
+    public function insert()
+    {
         if (!$this->isNew()) {
             return;
         }
@@ -52,13 +57,14 @@ VALUES
         return $db->execute($sql, $values);
     }
 
-    public function update() {
+    public function update()
+    {
 
         if ($this->isNew()) {
             return;
         }
         foreach ($this as $k => $v) {
-            if ('id' == $k ||  'data' == $k) {
+            if ('id' == $k || 'data' == $k) {
                 continue;
             }
             $colums[] = $k . ' = :' . $k;
@@ -74,15 +80,18 @@ VALUES
         }
     }
 
-    public function save() {
+    public function save()
+    {
         if ($this->isNew()) {
             $res = $this->insert();
         } else {
             $res = $this->update();
-        }return $res;
+        }
+        return $res;
     }
 
-    public function delete() {
+    public function delete()
+    {
         if (!$this->isNew()) {
             $sql = sprintf('DELETE FROM ' . static::TABLE . ' WHERE id = %d ', $this->id);
 
@@ -95,8 +104,9 @@ VALUES
         }
     }
 
-    public function fill(array $data) {
-        $e = new MultiException('Вызвано мультиисключение',102);
+    public function fill(array $data)
+    {
+        $e = new MultiException('Вызвано мультиисключение', 102);
 
         foreach ($data as $k => $v) {
             if (property_exists($this, $k)) {
@@ -105,7 +115,7 @@ VALUES
                         $e[] = new \Exception('Пустые значения полей запрещены');
                     case strlen($data[$k]) < 5 and !in_array($k, ['id', 'author_id']):
                         $e[] = new \Exception('Значениe "' . $k . '" должно быть не короче 5 символов');
-                throw $e;
+                        throw $e;
                 }
 
                 $this->$k = $v;

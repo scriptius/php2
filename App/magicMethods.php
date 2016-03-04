@@ -2,9 +2,12 @@
 
 namespace App;
 
-trait magicMethods {
-public $data=[];
-    public function __set($k, $v) {
+trait magicMethods
+{
+    public $data = [];
+
+    public function __set($k, $v)
+    {
         $this->data[$k] = $v;
     }
 
@@ -12,7 +15,8 @@ public $data=[];
      * @param $k Имя недоступного свойства
      * @return mixed Значение ключа $k массива data
      */
-    public function __get($k) {
+    public function __get($k)
+    {
         return $this->data[$k];
     }
 
@@ -20,7 +24,8 @@ public $data=[];
      * @param $param Имя недоступного свойства
      * @return bool Если свойство  существует,  то - вернуть его
      */
-    public function __isset($k) {
+    public function __isset($k)
+    {
 
 
         return $this->data[$k] == true;
