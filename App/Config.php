@@ -13,7 +13,7 @@ class Config
     {
         $this->data = ['db' => [
             'host' => '127.0.0.1',
-            'dbname' => 'php24',
+            'dbname' => 'php2',
             'login' => 'root',
             'pass' => ''
         ],
