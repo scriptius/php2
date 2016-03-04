@@ -19,7 +19,7 @@ class Config
         ],
             'emailAdmin' => [
                 'login' => 'levik04122008',
-                'pass' => 'xxx'
+                'pass' => '***'
             ]
         ];
     }
