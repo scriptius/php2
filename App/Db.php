@@ -49,5 +49,21 @@ class Db
         return $res;
 
     }
+    public function  queryEach($sql, $class, $data = [])
+    {
+        $sth = $this->dbh->prepare($sql);
+        $sth->setFetchMode(\PDO::FETCH_CLASS, $class);
+        $res = $sth->execute($data);
+        if ('00000' != $sth->errorCode()) {
+            $ex = new \App\Exceptions\Db('Запрос не выполнился', 101);
+            throw $ex;
+        }
+         if (false != $res) {
+            while ($record = $sth->fetch(\PDO::FETCH_CLASS)) {
+                yield $record;
+            }
+        }
+        return false;
+    }
 
 }
