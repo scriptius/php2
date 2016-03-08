@@ -11,6 +11,17 @@ abstract class Model
 
     public static function findAll()
     {
+//        $db = Db::instance();
+//        return $db->queryEach(
+//            'SELECT * FROM ' . static::TABLE, static::class
+//        );
+        $db = Db::instance();
+        return $db->query(
+            'SELECT * FROM ' . static::TABLE, static::class
+        );
+    }
+    public static function findAllGenerator()
+    {
         $db = Db::instance();
         return $db->queryEach(
             'SELECT * FROM ' . static::TABLE, static::class

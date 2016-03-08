@@ -10,12 +10,35 @@ use \App\MultiException;
 
 class Admin extends ControllerBackend
 {
-
+    public function actionNewsInTable() {
+    $news = News::findAll();
+    $adminDataTable = new \App\AdminDataTable($news,[ 
+    
+             function ($n) {
+                 return $n->id;
+             },
+             function ($n) {
+                 return $n->date;
+             },
+             function ($n) {
+                 return $n->title;
+             },
+             function ($n) {
+                 return $n->author->name;
+             }]
+         );
+//         var_dump($this);
+$this->view->news = $adminDataTable->render();
+$this->view->display(__DIR__ . '/../templates/admin/index.php');
+        die;
+    }
+    
+    
     protected function actionIndex()
     {
 
         $this->view->title = 'Админ-панель!';
-        $this->view->news = \App\Models\News::findAll();
+        $this->view->news = \App\Models\News::findAllGenerator();
         $this->view->display(__DIR__ . '/../templates/admin/index.php');
     }
 
